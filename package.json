@@ -1,0 +1,23 @@
+{
+    "name": "web-site-astro-02-movable-git",
+    "private": true,
+    "version": "0.0.1",
+    "description": "The files to make Astro build a (Markdown-capable) CMS-based WYSIWYG index.html",
+    "author": {
+        "name": "Katie Kodes",
+        "url": "https://katiekodes.com"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kkgthb/web-site-astro-02-movable.git"
+    },
+    "scripts": {
+        "dev": "astro dev --host",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "devDependencies": {
+        "astro": "latest"
+    }
+}

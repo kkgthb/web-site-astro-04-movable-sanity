@@ -1,0 +1,32 @@
+---
+import ItemTask from "./item_task.astro";
+
+interface Task {
+    task: string;
+    done: boolean;
+    how?: string;
+}
+
+export interface Props {
+    section: {
+        type: string;
+        accomplishments: Array<Task>;
+    };
+}
+
+const alternatingClassNames = ["task-odd", "task-even"]; // Per https://stackoverflow.com/a/45467474
+const tasks = Astro.props.section.accomplishments;
+---
+
+<div class="task-list">
+    {
+        Astro.props.section.accomplishments.map((taskToDo, index) => (
+            <ItemTask
+                taskDetail={taskToDo}
+                alternatingClassName={
+                    alternatingClassNames[index % alternatingClassNames.length]
+                }
+            />
+        ))
+    }
+</div>

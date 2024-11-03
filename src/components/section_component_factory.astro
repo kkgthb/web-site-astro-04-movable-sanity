@@ -1,0 +1,19 @@
+---
+import SectionBlue from "./section_blue.astro";
+import SectionPink from "./section_pink.astro";
+import SectionTaskList from "./section_task_list.astro";
+
+export interface Props  {
+    section: { 
+        type: string;
+    }
+}
+
+const { section } = Astro.props;
+---
+
+<>
+{section.type === 'section_blue' && <SectionBlue {section}/>}
+{section.type === 'section_pink' && <SectionPink {section}/>}
+{section.type === 'section_task_list' && <SectionTaskList {section}/>}
+</>

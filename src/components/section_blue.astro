@@ -1,0 +1,19 @@
+---
+export interface Props {
+    section: {
+        type: string;
+        mention: string;
+    };
+}
+---
+
+<style>
+    .blue-div {
+        background-color: #1e88e5;
+        color: white;
+    }
+</style>
+
+<div class="blue-div">
+    {Astro.props.section.mention}
+</div>

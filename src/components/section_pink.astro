@@ -1,0 +1,19 @@
+---
+export interface Props {
+    section: {
+        type: string;
+        say: string;
+    };
+}
+---
+
+<style>
+    .pink-div {
+        background-color: #d81b60;
+        color: black;
+    }
+</style>
+
+<div class="pink-div">
+    {Astro.props.section.say}
+</div>

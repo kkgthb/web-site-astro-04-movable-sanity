@@ -1,0 +1,13 @@
+---
+import MyDefaultLayout from "../layouts/MyDefaultLayout.astro";
+import * as indexContent from "../markdown/index.md";
+import SectionComponentFactory from "../components/section_component_factory.astro";
+
+const { section } = indexContent.frontmatter;
+
+---
+<MyDefaultLayout>
+    <div class="xyzzy">
+        { indexContent.frontmatter.sections.map( (section) => <SectionComponentFactory section={section} /> ) }
+    </div>
+</MyDefaultLayout>

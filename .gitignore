@@ -1,0 +1,9 @@
+.ignoreme
+.vscode
+
+node_modules
+dist
+.astro
+
+# Temporary
+package-lock.json

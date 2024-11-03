@@ -1,0 +1,19 @@
+---
+import LandingLayout from "./LandingLayout.astro";
+
+export interface Props {
+  template: string;
+}
+
+const { template } = Astro.props;
+---
+
+<>
+  {
+    template === "landing" && (
+      <LandingLayout>
+        <slot />
+      </LandingLayout>
+    )
+  }
+</>

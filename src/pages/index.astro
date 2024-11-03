@@ -1,13 +1,15 @@
 ---
-import MyDefaultLayout from "../layouts/MyDefaultLayout.astro";
 import * as indexContent from "../markdown/index.md";
 import SectionComponentFactory from "../components/section_component_factory.astro";
+import PageLayoutFactory from "../layouts/page_layout_factory.astro";
 
 const { section } = indexContent.frontmatter;
-
 ---
-<MyDefaultLayout>
-    <div class="xyzzy">
-        { indexContent.frontmatter.sections.map( (section) => <SectionComponentFactory section={section} /> ) }
-    </div>
-</MyDefaultLayout>
+
+<PageLayoutFactory template="landing">
+  {
+    indexContent.frontmatter.sections.map((section) => (
+      <SectionComponentFactory section={section} />
+    ))
+  }
+</PageLayoutFactory>

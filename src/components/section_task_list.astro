@@ -1,32 +1,24 @@
 ---
+import { SectionTaskList, Task } from "../../utils/groqQueries";
 import ItemTask from "./item_task.astro";
 
-interface Task {
-    task: string;
-    done: boolean;
-    how?: string;
-}
-
 export interface Props {
-    section: {
-        type: string;
-        accomplishments: Array<Task>;
-    };
+  section: SectionTaskList;
 }
 
 const alternatingClassNames = ["task-odd", "task-even"]; // Per https://stackoverflow.com/a/45467474
-const tasks = Astro.props.section.accomplishments;
+const tasks: Task[] | null | undefined = Astro.props.section?.accomplishments;
 ---
 
 <div class="task-list">
-    {
-        Astro.props.section.accomplishments.map((taskToDo, index) => (
-            <ItemTask
-                taskDetail={taskToDo}
-                alternatingClassName={
-                    alternatingClassNames[index % alternatingClassNames.length]
-                }
-            />
-        ))
-    }
+  {
+    tasks?.map((taskToDo, index) => (
+      <ItemTask
+        taskDetail={taskToDo}
+        alternatingClassName={
+          alternatingClassNames[index % alternatingClassNames.length]
+        }
+      />
+    ))
+  }
 </div>

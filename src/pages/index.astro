@@ -1,14 +1,25 @@
 ---
-import * as indexContent from "../markdown/index.md";
 import SectionComponentFactory from "../components/section_component_factory.astro";
 import PageLayoutFactory from "../layouts/page_layout_factory.astro";
 
-const { section } = indexContent.frontmatter;
+import type {
+  ValidDocumentParams,
+  LandingDocumentResult,
+} from "../../utils/groqQueries";
+import { landingDocumentGroq } from "../../utils/groqQueries";
+import { client } from "../../utils/sanityClient";
+
+const dummyHomeLandingParam: ValidDocumentParams = { slug: "/" }; // Eventually we will want to clean this whole thing up and make it more dynamic of a page template
+
+const queryResult: LandingDocumentResult = await client.fetch(
+  landingDocumentGroq,
+  dummyHomeLandingParam
+);
 ---
 
-<PageLayoutFactory template="landing">
+<PageLayoutFactory template={queryResult.template}>
   {
-    indexContent.frontmatter.sections.map((section) => (
+    queryResult.sections?.map((section) => (
       <SectionComponentFactory section={section} />
     ))
   }

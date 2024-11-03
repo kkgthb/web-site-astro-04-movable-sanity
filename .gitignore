@@ -4,6 +4,4 @@
 node_modules
 dist
 .astro
-
-# Temporary
-package-lock.json
+.env*

@@ -1,23 +1,25 @@
 {
-    "name": "web-site-astro-04-movable-sanity",
-    "private": true,
-    "version": "0.0.1",
-    "description": "The files to make Astro build a (Sanity.io-capable) CMS-based WYSIWYG index.html",
-    "author": {
-        "name": "Katie Kodes",
-        "url": "https://katiekodes.com"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/kkgthb/web-site-astro-04-movable-sanity.git"
-    },
-    "scripts": {
-        "dev": "astro dev --host",
-        "build": "astro build",
-        "preview": "astro preview",
-        "astro": "astro"
-    },
-    "devDependencies": {
-        "astro": "latest"
-    }
+  "name": "web-site-astro-04-movable-sanity",
+  "private": true,
+  "version": "0.0.1",
+  "description": "The files to make Astro build a (Sanity.io-capable) CMS-based WYSIWYG index.html",
+  "author": {
+    "name": "Katie Kodes",
+    "url": "https://katiekodes.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kkgthb/web-site-astro-04-movable-sanity.git"
+  },
+  "scripts": {
+    "dev": "astro dev --host",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "devDependencies": {
+    "astro": "latest",
+    "@sanity/astro": "latest",
+    "@sanity/client": "latest"
+  }
 }

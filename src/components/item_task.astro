@@ -1,29 +1,37 @@
 ---
+import { Task } from "../../utils/groqQueries";
+
+export interface Props {
+  taskDetail: Task;
+  alternatingClassName: string;
+}
+
 let checkboxSymbol;
 if (Astro.props.taskDetail.done) {
-    checkboxSymbol = "✓";
+  checkboxSymbol = "✓";
 } else {
-    checkboxSymbol = "X";
+  checkboxSymbol = "X";
 }
+
 const classes = `task ${Astro.props.alternatingClassName}`;
 const { taskDetail } = Astro.props;
 ---
 
 <style>
-    .task.task-odd {
-        background-color: #ffc107;
-        color: black;
-    }
+  .task.task-odd {
+    background-color: #ffc107;
+    color: black;
+  }
 
-    .task.task-even {
-        background-color: #004d40;
-        color: white;
-    }
+  .task.task-even {
+    background-color: #004d40;
+    color: white;
+  }
 </style>
 
 <div class={classes}>
-    <b>{checkboxSymbol}</b>
-    {" "}
-    <b>{taskDetail.task}</b>
-    {taskDetail.how && <i> {taskDetail.how}</i>}
+  <b>{checkboxSymbol}</b>
+  {" "}
+  <b>{taskDetail.task}</b>
+  {taskDetail.how && <i> {taskDetail.how}</i>}
 </div>

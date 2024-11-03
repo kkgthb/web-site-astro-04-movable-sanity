@@ -2,18 +2,17 @@
 import SectionBlue from "./section_blue.astro";
 import SectionPink from "./section_pink.astro";
 import SectionTaskList from "./section_task_list.astro";
+import type { Section } from "../../utils/groqQueries";
 
-export interface Props  {
-    section: { 
-        type: string;
-    }
+export interface Props {
+  section: Section;
 }
 
 const { section } = Astro.props;
 ---
 
 <>
-{section.type === 'section_blue' && <SectionBlue {section}/>}
-{section.type === 'section_pink' && <SectionPink {section}/>}
-{section.type === 'section_task_list' && <SectionTaskList {section}/>}
+  {section._type === "sectionBlue" && <SectionBlue {section} />}
+  {section._type === "sectionPink" && <SectionPink {section} />}
+  {section._type === "sectionTaskList" && <SectionTaskList {section} />}
 </>
